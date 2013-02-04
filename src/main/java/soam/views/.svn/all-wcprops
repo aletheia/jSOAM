@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/soam/!svn/ver/24/src/soam/views
+END
+JetColorMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/soam/!svn/ver/24/src/soam/views/JetColorMap.java
+END
+MeshImagePanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/soam/!svn/ver/24/src/soam/views/MeshImagePanel.java
+END
+SOAMLauncher.java
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/soam/!svn/ver/24/src/soam/views/SOAMLauncher.java
+END
+Mesh3dPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/soam/!svn/ver/24/src/soam/views/Mesh3dPanel.java
+END
+VertexInspector.java
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/soam/!svn/ver/24/src/soam/views/VertexInspector.java
+END
+BeanViewer.java
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/soam/!svn/ver/24/src/soam/views/BeanViewer.java
+END
+AlgorithmConsole.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/soam/!svn/ver/24/src/soam/views/AlgorithmConsole.java
+END
+VoronoiPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/soam/!svn/ver/24/src/soam/views/VoronoiPanel.java
+END
+BeanEditor.java
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/soam/!svn/ver/24/src/soam/views/BeanEditor.java
+END
+SOAMStateColorCodes.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/soam/!svn/ver/24/src/soam/views/SOAMStateColorCodes.java
+END

@@ -1,0 +1,74 @@
+/**
+ *  Copyright 2007 Universita' degli Studi di Pavia
+ *  Laboratorio di Visione Artificiale
+ *  http://vision.unipv.it
+ * 
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+
+ *  You should have received a copy of the GNU General Public License along
+ *  with this program; if not, write to the Free Software Foundation, Inc.,
+ *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+
+package soam.sampling;
+
+
+public class SphereIn3DSampler implements ComponentSampler {
+
+    protected double[] center;
+    protected double radius;
+
+    public SphereIn3DSampler(double[] center, double radius) {
+
+        if (center.length != 3) {
+            throw new RuntimeException(
+                    "Only a sphere in a 3D space can be sampled by this class.");
+        }
+
+        this.center = center;
+        this.radius = radius;
+    }
+
+    /**
+     * Uniform sampling of a 2-sphere in 3D space using the trig method
+     * 
+     * @see <a
+     *      href="http://groups.google.com/group/sci.math.num-analysis/msg/965b969e46d6e582">N-dim
+     *      spherical random number drawing</a>
+     */
+    public double[] nextSample() {
+        double[] sample = new double[center.length];
+
+        // Generate a point on a 2-sphere centered at the origin
+        sample[2] = (Math.random() * 2 * radius) - radius;
+
+        double t = (Math.random() * 2 * Math.PI);
+        double r = Math.sqrt(Math.pow(radius, 2) - Math.pow(sample[2], 2));
+        sample[0] = r * Math.cos(t);
+        sample[1] = r * Math.sin(t);
+
+        // Translate point
+        sample[0] += center[0];
+        sample[1] += center[1];
+        sample[2] += center[2];
+               
+        return sample;
+    }
+    
+    public int getDimensions() {
+	return 3;
+    }
+
+    public double getArea() {
+        return 4 * Math.PI * Math.pow(radius, 2);
+    }
+
+}

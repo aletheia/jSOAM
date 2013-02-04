@@ -1,0 +1,81 @@
+/**
+ *  Copyright 2008 Universita' degli Studi di Pavia
+ *  Laboratorio di Visione Artificiale
+ *  http://vision.unipv.it
+ * 
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+
+ *  You should have received a copy of the GNU General Public License along
+ *  with this program; if not, write to the Free Software Foundation, Inc.,
+ *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+
+package soam.sampling;
+
+import java.util.Random;
+
+public class KleinBottleSampler implements ComponentSampler {
+    protected static final double BASIC_SCALE = 256;
+    protected static final double SCALE = BASIC_SCALE / (Math.PI * 4);
+
+    protected int dimensions;
+
+    protected Random random;
+
+    public KleinBottleSampler(int dimensions) {
+	if (dimensions < 3) {
+	    throw new RuntimeException("Unsupported dimensions: " + dimensions);
+	}
+
+	this.dimensions = dimensions;
+	random = new Random();
+
+    }
+
+    public double[] nextSample() {
+
+	double u = random.nextDouble() * 2 * Math.PI;
+	double v = random.nextDouble() * 2 * Math.PI;
+
+	double[] sample = new double[dimensions];
+
+	sample[0] =
+		(3 * (1 + Math.sin(v)) + 2 * (1 - Math.cos(v) / 2d)
+			* Math.cos(u))
+			* Math.cos(v);
+	sample[1] =
+		(4 + 2 * (1 - Math.cos(v) / 2d) * Math.cos(u)) * Math.sin(v);
+	sample[2] = -2 * (1 - Math.cos(v) / 2d) * Math.sin(u);
+
+	for (int i = 3; i < dimensions; i++) {
+	    sample[i] = (0.02d * Math.cos(v) + 1.98d * Math.cos(u)) / 2d;
+	}
+
+	// Scale & translate
+	sample[0] = sample[0] * SCALE + BASIC_SCALE / 2d;
+	sample[1] = sample[1] * SCALE + BASIC_SCALE / 2d;
+	sample[2] = sample[2] * SCALE + BASIC_SCALE / 2d;
+
+	for (int i = 3; i < dimensions; i++) {
+	    sample[i] = sample[i] * BASIC_SCALE / 2d + BASIC_SCALE / 2d;
+	}
+
+	return sample;
+    }
+
+    public int getDimensions() {
+	return dimensions;
+    }
+
+    public double getArea() {
+	throw new RuntimeException("Method not implemented");
+    }
+}
