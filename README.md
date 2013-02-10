@@ -1,7 +1,6 @@
 jSOAM
 =====
-
-<a href="https://travis-ci.org/aletheia/jSOAM.png?branch=master"></a>
+[![Build Status](https://travis-ci.org/aletheia/jSOAM.png?branch=master)](http://travis-ci.org/twitter/flight)
 
 jSOAM is a Java implementation of Self Organizing Adaptive Maps, a self organizing network algorithm used to reconstruct curves and surfaces starting from a point set
 
