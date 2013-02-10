@@ -188,8 +188,10 @@
     </dependencies>
 
     <modules>
+        <module>algorithms</module>
         <module>core</module>
         <module>app-swing</module>
+        <module>utils</module>
     </modules>
 
 </project>

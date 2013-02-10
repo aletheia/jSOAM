@@ -18,32 +18,6 @@
     <name>jSOAM (master)</name>
     <description>jSOAM (master)</description>
 
-	<issueManagement>
-		<system>Redmine</system>
-		<url>https://projects.mobc3.com/</url>
-	</issueManagement>
-
-	<ciManagement>
-		<system>Hudson</system>
-		<url>http://moria.mobc3.com/jenkins/</url>
-	</ciManagement>
-
-	<repositories>
-		<repository>
-			<id>central</id>
-			<name>libs-release</name>
-			<url>http://moria.mobc3.com/artifactory/libs-release</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>snapshots</id>
-			<name>libs-snapshot</name>
-			<url>http://moria.mobc3.com/artifactory/libs-snapshot</url>
-			<snapshots />
-		</repository>
-	</repositories>
 
 	<dependencyManagement>
 		<dependencies>
@@ -54,12 +28,7 @@
 			</dependency>
 			<dependency>
                 <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
-				<artifactId>jsoam-rest</artifactId>
-                <version>1.0-ALPHA-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-                <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
-				<artifactId>jsoam-persistence</artifactId>
+				<artifactId>jsoam-app-swing</artifactId>
                 <version>1.0-ALPHA-SNAPSHOT</version>
 			</dependency>
 		</dependencies>
