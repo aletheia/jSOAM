@@ -1,10 +1,90 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.bianchiluca.incubator.neuralNetworks</groupId>
-  <artifactId>jsoam</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>jSOAM</name>
-  <packaging>pom</packaging>
-  <description>Self Organizing Adaptive Maps implementation in Java featuring density-variable approach</description>
-  
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mobc3</groupId>
+        <artifactId>superpom</artifactId>
+        <version>1.1.41</version>
+    </parent>
+
+    <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
+    <artifactId>jsoam</artifactId>
+    <version>1.0-ALPHA-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>jSOAM (master)</name>
+    <description>jSOAM (master)</description>
+
+	<issueManagement>
+		<system>Redmine</system>
+		<url>https://projects.mobc3.com/</url>
+	</issueManagement>
+
+	<ciManagement>
+		<system>Hudson</system>
+		<url>http://moria.mobc3.com/jenkins/</url>
+	</ciManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>libs-release</name>
+			<url>http://moria.mobc3.com/artifactory/libs-release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>snapshots</id>
+			<name>libs-snapshot</name>
+			<url>http://moria.mobc3.com/artifactory/libs-snapshot</url>
+			<snapshots />
+		</repository>
+	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+                <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
+				<artifactId>jsoam-core</artifactId>
+                <version>1.0-ALPHA-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+                <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
+				<artifactId>jsoam-rest</artifactId>
+                <version>1.0-ALPHA-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+                <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
+				<artifactId>jsoam-persistence</artifactId>
+                <version>1.0-ALPHA-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- Needed for setting that inherited = false -->
+            <plugin>
+                <groupId>com.mycila.maven-license-plugin</groupId>
+                <artifactId>maven-license-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <excludes>
+                        <exclude>LICENSE.txt</exclude>
+                        <exclude>**/.git</exclude>
+                        <exclude>.gitignore</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+<modules>
+	<module>modules</module>
+</modules>
+
 </project>
