@@ -1,59 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.mobc3</groupId>
-        <artifactId>superpom</artifactId>
-        <version>1.1.41</version>
-    </parent>
+	<groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
+	<artifactId>jsoam</artifactId>
+	<version>1.0-ALPHA-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>jSOAM (master)</name>
+	<description>jSOAM (master)</description>
 
-    <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
-    <artifactId>jsoam</artifactId>
-    <version>1.0-ALPHA-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>jSOAM (master)</name>
-    <description>jSOAM (master)</description>
+	<properties>
+		<mc3.spring.version>3.2.1.RELEASE</mc3.spring.version>
+		<mc3.logback.version>1.0.9</mc3.logback.version>
+		<mc3.slf4j.version>1.7.2</mc3.slf4j.version>
+		<mc3.aspectjrt.version>1.7.1</mc3.aspectjrt.version>
+		<mc3.javax.version>6.0</mc3.javax.version>
+		<mc3.servlet.api.version>6.1.14</mc3.servlet.api.version>
+		<mc3.servlet.jsp.version>6.0.36</mc3.servlet.jsp.version>
+		<mc3.servlet.jstl.version>1.2</mc3.servlet.jstl.version>
+		<mc3.google.findbugs.version>2.0.1</mc3.google.findbugs.version>
+		<mc3.lombok.version>0.11.6</mc3.lombok.version>
+	</properties>
 
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-                <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
+				<groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
 				<artifactId>jsoam-core</artifactId>
-                <version>1.0-ALPHA-SNAPSHOT</version>
+				<version>1.0-ALPHA-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-                <groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
+				<groupId>com.bianchiluca.neuralnetwors.jsoam</groupId>
 				<artifactId>jsoam-app-swing</artifactId>
-                <version>1.0-ALPHA-SNAPSHOT</version>
+				<version>1.0-ALPHA-SNAPSHOT</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
-    <build>
-        <plugins>
-            <!-- Needed for setting that inherited = false -->
-            <plugin>
-                <groupId>com.mycila.maven-license-plugin</groupId>
-                <artifactId>maven-license-plugin</artifactId>
-                <inherited>false</inherited>
-                <configuration>
-                    <excludes>
-                        <exclude>LICENSE.txt</exclude>
-                        <exclude>**/.git</exclude>
-                        <exclude>.gitignore</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<!-- Needed for setting that inherited = false -->
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<inherited>false</inherited>
+				<configuration>
+					<excludes>
+						<exclude>LICENSE.txt</exclude>
+						<exclude>**/.git</exclude>
+						<exclude>.gitignore</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
-<modules>
-	<module>modules</module>
-</modules>
+	<modules>
+		<module>modules</module>
+	</modules>
 
 </project>
